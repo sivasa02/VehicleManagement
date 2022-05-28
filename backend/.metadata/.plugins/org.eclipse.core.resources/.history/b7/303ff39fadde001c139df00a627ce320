@@ -1,0 +1,44 @@
+package com.beater.vehicle.service;
+
+import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.beater.vehicle.exception.UserNotFoundException;
+import com.beater.vehicle.model.User;
+import com.beater.vehicle.repository.UserRepository;
+
+@Service
+public class UserService {
+
+	private UserRepository userRepository;
+
+	private String hashPassword(String plainTextPassword) {
+		return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
+	}
+
+	private Boolean checkPass(String plainPassword, String hashedPassword) {
+		if (BCrypt.checkpw(plainPassword, hashedPassword))
+			return true;
+		else
+			return false;
+	}
+
+	public String getAllUserByMemberId(long id, String pwd) {
+		System.out.println(id+" "+pwd);
+		User user = userRepository.getById(id).
+		System.out.println(user.toString());
+		if (checkPass(pwd, userRepository.getById(id).getUserPwrd())) {
+			String u = userRepository.getById(id).getUserName();
+			if (userRepository.getById(id).getIsAdmin().equals("admin")) {
+				return u + ";AdminUser";
+			} else {
+				return u + ";NotAdmin";
+			}
+		}
+
+//		System.out.println(userRepository.findById(i.getMemberId()));
+
+		return "Invalid";
+	}
+}

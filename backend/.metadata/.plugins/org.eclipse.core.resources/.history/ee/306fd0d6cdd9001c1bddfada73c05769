@@ -1,0 +1,5 @@
+ackage com.beater.vehicle.repository;
+
+public class VehicleRepository {
+
+}

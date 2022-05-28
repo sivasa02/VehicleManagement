@@ -1,0 +1,19 @@
+package com.beater.vehicle.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Vehicle")
+public class Vehicle {
+	@Id
+    @Column(name = "vehicle_id")
+    @SequenceGenerator(initialValue=1000,allocationSize=1,name = "vehicle_sequence", sequenceName="vehicle_sequence")
+    @GeneratedValue(generator="vehicle_sequence")
+	private long vehicleId;
+
+}

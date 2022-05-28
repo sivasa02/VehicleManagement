@@ -1,0 +1,128 @@
+package com.beater.vehicle.model;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import com.sun.istack.NotNull;
+
+@Entity
+@Table(name = "Vehicle")
+public class Vehicle {
+	@Id
+    @Column(name = "vehicle_id")
+    @SequenceGenerator(initialValue=1000,allocationSize=1,name = "vehicle_sequence", sequenceName="vehicle_sequence")
+    @GeneratedValue(generator="vehicle_sequence")
+	private long vehicleId;
+	@Column(name = "vehicle_make")
+	private String make;
+	@Column(name= "vehicle_Model")
+	private String model;
+	@Column(name="variant")
+	private String variant;
+	@Column(name = "dateOfRegister")
+    private Date dateOfRegister;
+	@Column(name="vin_num")
+	@NotNull
+	private long vinNumber;
+	@Column(name = "reg_num")
+	@NotNull
+	private long regNumber;
+	@Column(name = "color")
+	private String color;
+	@Column(name = "cc")
+	private int cc;
+	@Column(name = "fuel_type")
+    private String fuel_type;
+	
+	public Vehicle() {
+		
+	}
+	
+	public Vehicle(long vehicleId, String make, String model, String variant, Date dateOfRegister, long vinNumber,
+			long regNumber, String color, int cc, String fuel_type) {
+		super();
+		this.vehicleId = vehicleId;
+		this.make = make;
+		this.model = model;
+		this.variant = variant;
+		this.dateOfRegister = dateOfRegister;
+		this.vinNumber = vinNumber;
+		this.regNumber = regNumber;
+		this.color = color;
+		this.cc = cc;
+		this.fuel_type = fuel_type;
+	}
+	public long getVehicleId() {
+		return vehicleId;
+	}
+	public void setVehicleId(long vehicleId) {
+		this.vehicleId = vehicleId;
+	}
+	public String getMake() {
+		return make;
+	}
+	public void setMake(String make) {
+		this.make = make;
+	}
+	public String getModel() {
+		return model;
+	}
+	public void setModel(String model) {
+		this.model = model;
+	}
+	public String getVariant() {
+		return variant;
+	}
+	public void setVariant(String variant) {
+		this.variant = variant;
+	}
+	public Date getDateOfRegister() {
+		return dateOfRegister;
+	}
+	public void setDateOfRegister(Date dateOfRegister) {
+		this.dateOfRegister = dateOfRegister;
+	}
+	public long getVinNumber() {
+		return vinNumber;
+	}
+	public void setVinNumber(long vinNumber) {
+		this.vinNumber = vinNumber;
+	}
+	public long getRegNumber() {
+		return regNumber;
+	}
+	public void setRegNumber(long regNumber) {
+		this.regNumber = regNumber;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+	public int getCc() {
+		return cc;
+	}
+	public void setCc(int cc) {
+		this.cc = cc;
+	}
+	public String getFuel_type() {
+		return fuel_type;
+	}
+	public void setFuel_type(String fuel_type) {
+		this.fuel_type = fuel_type;
+	}
+	@Override
+	public String toString() {
+		return "Vehicle [vehicleId=" + vehicleId + ", make=" + make + ", model=" + model + ", variant=" + variant
+				+ ", dateOfRegister=" + dateOfRegister + ", vinNumber=" + vinNumber + ", regNumber=" + regNumber
+				+ ", color=" + color + ", cc=" + cc + ", fuel_type=" + fuel_type + "]";
+	}
+
+}

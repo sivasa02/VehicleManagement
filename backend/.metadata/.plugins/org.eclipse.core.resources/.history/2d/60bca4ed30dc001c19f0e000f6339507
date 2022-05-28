@@ -1,0 +1,7 @@
+package com.beater.vehicle.model;
+
+public class Login {
+	private Long MemberId;
+	private String password;
+
+}

@@ -1,0 +1,78 @@
+package com.beater.vehicle.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import com.sun.istack.NotNull;
+
+@Entity
+@Table(name="User")
+public class User {
+	@Id
+    @Column(name = "user_id")
+    @SequenceGenerator(initialValue=1000,allocationSize=1,name = "user_sequence", sequenceName="user_sequence")
+    @GeneratedValue(generator="user_sequence")
+	private long userId;
+	@Column(name = "user_name")
+	private String userName;
+	@Column(name = "is_admin")
+	private String isAdmin;
+	@Column(name = "user_pwrd")
+	@NotNull
+	private String userPwrd;
+
+	public User() {
+
+	}
+
+	public User(long userId, String userName, String isAdmin, String userPwrd) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.isAdmin = isAdmin;
+		this.userPwrd = userPwrd;
+	}
+
+	public long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getIsAdmin() {
+		return isAdmin;
+	}
+
+	public void setIsAdmin(String isAdmin) {
+		this.isAdmin = isAdmin;
+	}
+
+	public String getUserPwrd() {
+		return userPwrd;
+	}
+
+	public void setUserPwrd(String userPwrd) {
+		this.userPwrd = userPwrd;
+	}
+
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userName=" + userName + ", isAdmin=" + isAdmin + ", userPwrd=" + userPwrd
+				+ "]";
+	}
+
+}

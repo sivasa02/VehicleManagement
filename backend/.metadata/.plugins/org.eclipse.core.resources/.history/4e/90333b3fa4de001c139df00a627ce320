@@ -1,0 +1,28 @@
+package com.beater.vehicle.model;
+
+public class Login {
+	private Long MemberId;
+	private String password;
+	
+	public Login(){
+		
+	}
+	public Long getMemberId() {
+		return MemberId;
+	}
+	public void setMemberId(Long memberId) {
+		MemberId = memberId;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public Login(Long memberId, String password) {
+		super();
+		MemberId = memberId;
+		this.password = password;
+	}
+
+}
